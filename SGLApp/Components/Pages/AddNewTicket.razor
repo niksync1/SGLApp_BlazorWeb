@@ -1,0 +1,29 @@
+﻿@page "/addticket"
+@inject ITicketRepository Repository
+@inject NavigationManager Navigation
+
+<PageTitle>
+    Add New Ticket
+</PageTitle>
+<h3>Add New Ticket</h3>
+
+<div class="row justify-content-center">
+    <div class="col-6">
+        <EditForm method="post" FormName="AddTicketForm" OnValidSubmit="AddnewTicket" Model="Ticket" autocomplete="off" >
+            <h3>
+                Add New Ticket
+            </h3>
+            <input type="hidden" name="Ticket.RealTimeTicket_Id" value="@Ticket.RealTimeTicket_Id" />
+        </EditForm>
+    </div>
+</div>
+@code {
+    [SupplyParameterFromForm]
+    public Ticket Ticket { get; set; } = new();
+
+    private async Task AddnewTicket()
+    {
+        await Repository.AddTicketAsync(Ticket);
+        Navigation.NavigateTo("/");
+    }
+}

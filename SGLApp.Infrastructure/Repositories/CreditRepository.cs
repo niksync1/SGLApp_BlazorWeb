@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SGLApp.Application.Interfaces;
-using SGLApp.Domain.Entities;
 using SGLApp.Infrastructure.Context;
+using SGLApp.Domain.Entities;
 
 namespace SGLApp.Infrastructure.Repositories
 {
@@ -13,30 +13,33 @@ namespace SGLApp.Infrastructure.Repositories
             context = factory.CreateDbContext();
         }
 
-        public async Task AddCredit(Credit newCredit)
+        public async Task AddCreditAsync(Credit credit)
         {
-            context.CreditTransmissions.Add(newCredit);
+            context.CreditTransmissions.Add(credit);
             await context.SaveChangesAsync();
         }
 
-        public Task<List<Credit>> DeleteCredit(int id)
+        //public Task<Credit> DeleteCredit(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public async Task<List<Credit>> GetAllCredits()
         {
-            throw new NotImplementedException();
+            var dbCredits = await context.CreditTransmissions.ToListAsync();
+            return dbCredits;
         }
 
-        public Task<List<Credit>> GetAllCredits()
+        public async Task<Credit?> GetCreditById(int id)
         {
-            throw new NotImplementedException();
+            var dbCredit = await context.CreditTransmissions.FirstOrDefaultAsync(e =>e.Auto_Id == id);
+            return dbCredit;
         }
 
-        public Task<Credit> GetCreditById(int id)
+        public async Task UpdateCredit(Credit updatedCredit)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<Credit> UpdateCredit(Credit updatedCredit)
-        {
-            throw new NotImplementedException();
+            context.Entry(UpdateCredit).State = EntityState.Modified;
+            await context.SaveChangesAsync();
         }
     }
 }

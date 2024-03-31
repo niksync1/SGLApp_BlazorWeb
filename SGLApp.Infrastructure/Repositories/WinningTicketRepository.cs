@@ -13,15 +13,10 @@ namespace SGLApp.Infrastructure.Repositories
             context =factory.CreateDbContext();
         }
 
-        public async Task AddWinningTicket(WinningTicket newWinningTicket)
+        public async Task AddWinningTicketAsync(WinningTicket WinningTicket)
         {
-            context.WinningTickets.Add(newWinningTicket);
+            context.WinningTickets.Add(WinningTicket);
             await context.SaveChangesAsync();
-        }
-
-        public Task AddWinningTicket(Ticket newWinningTicket)
-        {
-            throw new NotImplementedException();
         }
 
         public Task<List<WinningTicket>> GetAllWinningTickets()
@@ -34,7 +29,7 @@ namespace SGLApp.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<WinningTicket> UpdateWinningTicket(Ticket updateWinningTicket)
+        public Task<WinningTicket> UpdateWinningTicket(WinningTicket updateWinningTicket)
         {
             throw new NotImplementedException();
         }

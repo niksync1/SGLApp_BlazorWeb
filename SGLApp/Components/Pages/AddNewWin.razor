@@ -1,0 +1,27 @@
+﻿@page "/addwin"
+@inject IWinningTicketRepository Repository
+@inject NavigationManager Navigation
+
+<PageTitle>
+    Add New Winning Ticket
+</PageTitle>
+<div class="row justify-content-center">
+    <div class="col-6">
+        <EditForm method="post" FormName="AddWinForm" OnValidSubmit="AddnewWin" Model="WinningTicket" autocomplete="off" >
+            <h3>
+                Add New Winning Ticket
+            </h3>
+            <input type="hidden" name="WinningTicket.WinningTicket_Id" value="@WinningTicket.WinningTicket_Id" />
+        </EditForm>
+    </div>
+</div>
+@code {
+    [SupplyParameterFromForm]
+    public WinningTicket WinningTicket { get; set; } = new();
+
+    private async Task AddnewWin()
+    {
+        await Repository.AddWinningTicketAsync(WinningTicket);
+        Navigation.NavigateTo("/");
+    }
+}

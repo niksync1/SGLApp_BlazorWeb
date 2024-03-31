@@ -1,0 +1,99 @@
+﻿@page "/addcredit"
+@inject ICreditRepository Repository
+@inject NavigationManager Navigation
+
+    <PageTitle>
+        Add New Credit
+    </PageTitle>
+    <div class="row justify-content-center">
+        <div class="col-6">
+        <EditForm method="post" FormName="AddCreditForm" OnValidSubmit="AddnewCredit" Model="Credit" autocomplete="off">
+                <h3>
+                    Add New Credit
+                </h3>
+                
+                    <input type="hidden" name="Credit.Auto_Id" value="@Credit.Auto_Id" />
+                
+                <div class="mb-3">
+                    <label for="agentnumber" class="form-label">
+                        AgentNumber
+                    </label>
+                    <InputNumber id="agentnumber" @bind-Value="Credit.AgentNumber" class="form-control" shadow-none />
+                </div>
+
+                <div class="mb-3">
+                    <label for="transaction_reference" class="form-label">
+                        Transaction Reference
+                    </label>
+                    <InputText id="transaction_reference" @bind-Value="Credit.transaction_reference" class="form-control" shadow-none />
+                </div>
+
+                <div class="mb-3">
+                    <label for="TransactionDate" class="form-label">
+                        Transaction Date
+                    </label>
+                    <InputDate id="TransactionDate" @bind-Value="Credit.TransactionDate" class="form-control" shadow-none />
+                </div>
+
+                <div class="mb-3">
+                    <label for="Amount" class="form-label">
+                        Amount
+                    </label>
+                    <InputNumber id="Amount" @bind-Value="Credit.Amount" class="form-control" shadow-none />
+                </div>
+
+                <div class="mb-3">
+                    <label for="Status" class="form-label">
+                        Status
+                    </label>
+                <InputNumber id="Status" @bind-Value="Credit.Status" class="form-control" shadow-none />
+                </div>
+            <div class="mb-3">
+                <label for="Vc" class="form-label">
+                    Vc
+                </label>
+                <InputText id="Vc" @bind-Value="Credit.Vc" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="AuditDate" class="form-label">
+                    Audit Date
+                </label>
+                <InputDate id="AuditDate" @bind-Value="Credit.AuditDate" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="BankName" class="form-label">
+                    Bank Name
+                </label>
+                <InputText id="BankName" @bind-Value="Credit.BankName" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="BankBranch" class="form-label">
+                    Bank Branch
+                </label>
+                <InputText id="BankBranch" @bind-Value="Credit.BankBranch" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary shadow-none">
+                    Submit
+                </button>
+                <a href="/" class="btn btn-secondary shadow-none ms-3">
+                    Back to List
+                </a>
+            </div>
+
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            </EditForm>
+        </div>
+    </div>
+
+@code {
+    [SupplyParameterFromForm]
+    public Credit Credit { get; set; } = new();
+
+    private async Task AddnewCredit()
+    {
+        await Repository.AddCreditAsync(Credit);
+        Navigation.NavigateTo("/");
+    }
+}

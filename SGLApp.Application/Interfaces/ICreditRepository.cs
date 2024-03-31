@@ -5,9 +5,9 @@ namespace SGLApp.Application.Interfaces
     public interface ICreditRepository
     {
         Task<List<Credit>> GetAllCredits();
-        Task<Credit> GetCreditById(int id);     
-        Task AddCredit(Credit newCredit);
-        Task<Credit> UpdateCredit(Credit updatedCredit);
-        Task<List<Credit>> DeleteCredit(int id);
+        Task<Credit?> GetCreditById(int id);     
+        Task AddCreditAsync(Credit credit);
+        Task UpdateCredit(Credit updatedCredit);
+        //Task<Credit> DeleteCredit(int id);
     }
 }

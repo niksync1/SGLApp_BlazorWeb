@@ -11,13 +11,13 @@ namespace SGLApp.Infrastructure.Context
         }
 
         //partial void OnModelBuilding(ModelBuilder builder);
-        //protected override void OnModelCreating(ModelBuilder builder)
-        //{
-        //    builder.Entity<Credit>().ToTable(tb => tb.HasTrigger("CreditTransmissions"));
-        //    builder.Entity<Ticket>().ToTable(tb => tb.HasTrigger("RealTimeTickets"));
-        //    builder.Entity<WinningTicket>().ToTable(tb => tb.HasTrigger("WinningTickets"));
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Credit>().ToTable(tb => tb.HasTrigger("CreditTransmissions"));
+            builder.Entity<Ticket>().ToTable(tb => tb.HasTrigger("RealTimeTickets"));
+            builder.Entity<WinningTicket>().ToTable(tb => tb.HasTrigger("WinningTickets"));
 
-        //}
+        }
 
         public DbSet<Credit> CreditTransmissions { get; set; }
         public DbSet<Ticket> RealTimeTickets { get; set; }

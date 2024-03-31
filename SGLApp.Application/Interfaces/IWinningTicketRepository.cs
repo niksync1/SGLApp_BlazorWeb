@@ -6,7 +6,7 @@ namespace SGLApp.Application.Interfaces
     {
         Task<List<WinningTicket>> GetAllWinningTickets();
         Task<WinningTicket> GetWinningTicketById(string Ticket_Id);
-        Task AddWinningTicket(Ticket newWinningTicket);
-        Task<WinningTicket> UpdateWinningTicket(Ticket updateWinningTicket);
+        Task AddWinningTicketAsync(WinningTicket WinningTicket);
+        Task<WinningTicket> UpdateWinningTicket(WinningTicket updateWinningTicket);
     }
 }
