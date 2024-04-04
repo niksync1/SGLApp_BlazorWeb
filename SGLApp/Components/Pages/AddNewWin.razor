@@ -12,6 +12,64 @@
                 Add New Winning Ticket
             </h3>
             <input type="hidden" name="WinningTicket.WinningTicket_Id" value="@WinningTicket.WinningTicket_Id" />
+            <div class="mb-3">
+                <label for="Sale" class="form-label">
+                    Sale
+                </label>
+                <InputDate id="Sale" @bind-Value="WinningTicket.Sale" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="Upload" class="form-label">
+                    Upload
+                </label>
+                <InputDate id="Upload" @bind-Value="WinningTicket.Upload" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="Agent_code" class="form-label">
+                    Agent Code
+                </label>
+                <InputNumber id="Agent_code" @bind-Value="WinningTicket.Agent_code" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="Terminal_Sale" class="form-label">
+                    Terminal Sale
+                </label>
+                <InputNumber id="Terminal_Sale" @bind-Value="WinningTicket.Terminal_Sale" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="Ticket_Id" class="form-label">
+                    Ticket Id
+                </label>
+                <InputText id="Ticket_Id" @bind-Value="WinningTicket.Ticket_Id" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="Payout" class="form-label">
+                    Payout
+                </label>
+                <InputNumber id="Payout" @bind-Value="WinningTicket.Payout" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="Ticket_Details" class="form-label">
+                    Ticket Details
+                </label>
+                <InputText id="Ticket_Details" @bind-Value="WinningTicket.Ticket_Details" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="Ticket_Code" class="form-label">
+                    Ticket Code
+                </label>
+                <InputText id="Ticket_Code" @bind-Value="WinningTicket.Ticket_Code" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary shadow-none">
+                    Submit
+                </button>
+                <a href="/" class="btn btn-secondary shadow-none ms-3">
+                    Back to List
+                </a>
+            </div>
+            <DataAnnotationsValidator />
+            <ValidationSummary />
         </EditForm>
     </div>
 </div>

@@ -5,7 +5,6 @@
 <PageTitle>
     Add New Ticket
 </PageTitle>
-<h3>Add New Ticket</h3>
 
 <div class="row justify-content-center">
     <div class="col-6">
@@ -14,6 +13,197 @@
                 Add New Ticket
             </h3>
             <input type="hidden" name="Ticket.RealTimeTicket_Id" value="@Ticket.RealTimeTicket_Id" />
+            <div class="mb-3">
+                <label for="POSID" class="form-label">
+                    POSID
+                </label>
+                <InputText id="POSID" @bind-Value="Ticket.POSID" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="DrawNo" class="form-label">
+                    DrawNo
+                </label>
+                <InputNumber id="DrawNo" @bind-Value="Ticket.DrawNo" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="DrawDate" class="form-label">
+                    Draw Date
+                </label>
+                <InputDate id="DrawDate" @bind-Value="Ticket.DrawDate" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="SalesDate" class="form-label">
+                    Sales Date
+                </label>
+                <InputDate id="SalesDate" @bind-Value="Ticket.SalesDate" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="TicketNumber" class="form-label">
+                    Ticket Number
+                </label>
+                <InputText id="TicketNumber" @bind-Value="Ticket.TicketNumber" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="ProductCode" class="form-label">
+                    Product Code
+                </label>
+                <InputText id="ProductCode" @bind-Value="Ticket.ProductCode" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="Region" class="form-label">
+                    Region
+                </label>
+                <InputText id="Region" @bind-Value="Ticket.Region" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="RetailerID" class="form-label">
+                    RetailerID
+                </label>
+                <InputText id="RetailerID" @bind-Value="Ticket.RetailerID" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="GameCode" class="form-label">
+                    Game Code
+                </label>
+                <InputSelect id="GameCode" @bind-Value="Ticket.GameCode" class="form-control" shadow-none>
+                    <option value="0">
+                        Select Game Code
+                    </option>
+                    @foreach(var gamecode in Enum.GetValues(typeof(GameCode)))
+                    {
+                        <option value="@gamecode">
+                            @gamecode.ToString()
+                        </option>
+                    }
+                </InputSelect> 
+            </div>
+            <div class="mb-3">
+                <label for="PermNumber" class="form-label">
+                    Perm Number
+                </label>
+                <InputText id="PermNumber" @bind-Value="Ticket.PermNumber" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="PermBet" class="form-label">
+                    Perm Bet
+                </label>
+                <InputText id="PermBet" @bind-Value="Ticket.PermBet" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="PermWeight" class="form-label">
+                    Perm Weight
+                </label>
+                <InputText id="PermWeight" @bind-Value="Ticket.PermWeight" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="PermAmount" class="form-label">
+                    Perm Amount
+                </label>
+                <InputNumber id="PermAmount" @bind-Value="Ticket.PermAmount" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="DirectNumber" class="form-label">
+                    Direct Number
+                </label>
+                <InputText id="DirectNumber" @bind-Value="Ticket.DirectNumber" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="DirectBet" class="form-label">
+                    Direct Bet
+                </label>
+                <InputText id="DirectBet" @bind-Value="Ticket.DirectBet" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="DirectWeight" class="form-label">
+                    Direct Weight
+                </label>
+                <InputText id="DirectWeight" @bind-Value="Ticket.DirectWeight" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="DirectAmount" class="form-label">
+                    Direct Amount
+                </label>
+                <InputNumber id="DirectAmount" @bind-Value="Ticket.DirectAmount" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="FullTicket" class="form-label">
+                    Full Ticket
+                </label>
+                <InputText id="FullTicket" @bind-Value="Ticket.FullTicket" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="TotalAmount" class="form-label">
+                    Total Amount 
+                </label>
+                <InputNumber id="TotalAmount" @bind-Value="Ticket.TotalAmount" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="IMEI" class="form-label">
+                    Full Ticket
+                </label>
+                <InputText id="IMEI" @bind-Value="Ticket.IMEI" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="POSBalance" class="form-label">
+                    POS Balance
+                </label>
+                <InputNumber id="POSBalance" @bind-Value="Ticket.POSBalance" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="POSDateTime" class="form-label">
+                    POS Date Time
+                </label>
+                <InputDate id="POSDateTime" @bind-Value="Ticket.POSDateTime" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="EncryptedData" class="form-label">
+                    Encrypted Data
+                </label>
+                <InputText id="EncryptedData" @bind-Value="Ticket.EncryptedData" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="Key" class="form-label">
+                    Key
+                </label>
+                <InputText id="Key" @bind-Value="Ticket.Key" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="PhoneNetwork" class="form-label">
+                    Phone Network
+                </label>
+                <InputText id="PhoneNetwork" @bind-Value="Ticket.PhoneNetwork" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="PhoneNumber" class="form-label">
+                    Phone Number
+                </label>
+                <InputText id="PhoneNumber" @bind-Value="Ticket.PhoneNumber" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="SalesSynced" class="form-label">
+                    Sales Synced
+                </label>
+                <InputNumber id="SalesSynced" @bind-Value="Ticket.SalesSynced" class="form-control" shadow-none />
+            </div>
+            <div class="mb-3">
+                <label for="Canceled" class="form-label">
+                    Cancelled
+                </label>
+                <InputSelect id="Canceled" @bind-Value="Ticket.Canceled" class="form-control" shadow-none>
+                    <option value= 0>No</option>
+                    <option value= 1>Yes</option>
+                </InputSelect> 
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary shadow-none">
+                    Submit
+                </button>
+                <a href="/" class="btn btn-secondary shadow-none ms-3">
+                    Back to List
+                </a>
+            </div>
+            <DataAnnotationsValidator />
+            <ValidationSummary />
         </EditForm>
     </div>
 </div>

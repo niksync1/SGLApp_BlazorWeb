@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using SGLApp.Domain.GameCodeEnum;
 
 namespace SGLApp.Domain.Entities
 {
@@ -16,7 +17,7 @@ namespace SGLApp.Domain.Entities
         public string? ProductCode { get; set; }
         public string? Region { get; set; }
         public string? RetailerID { get; set; }
-        public string? GameCode { get; set; }
+        public GameCode GameCode { get; set; }
         public string? PermNumber { get; set; }
         public string? PermBet { get; set; }
         public string? PermWeight { get; set; }
@@ -35,6 +36,6 @@ namespace SGLApp.Domain.Entities
         public string? PhoneNetwork { get; set; }
         public string? PhoneNumber { get; set; }
         public int? SalesSynced { get; set; } = 0;
-        public bool? Canceled { get; set; }
+        public bool? Canceled { get; set; } = false;
     }
 }

@@ -12,18 +12,11 @@ namespace SGLApp.Infrastructure.Repositories
         {
             context = factory.CreateDbContext();
         }
-
         public async Task AddCreditAsync(Credit credit)
         {
             context.CreditTransmissions.Add(credit);
             await context.SaveChangesAsync();
         }
-
-        //public Task<Credit> DeleteCredit(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         public async Task<List<Credit>> GetAllCredits()
         {
             var dbCredits = await context.CreditTransmissions.ToListAsync();

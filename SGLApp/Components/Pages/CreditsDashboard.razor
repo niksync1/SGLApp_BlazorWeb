@@ -1,0 +1,85 @@
+﻿@page "/creditsDash"
+@using SGLApp.Components.Pages.Shared
+@inject ICreditRepository Repository
+@inject NavigationManager Navigation
+
+<PageTitle>
+    Credits Dashboard
+</PageTitle>
+<div class="col-12">
+    <h3> Enter Credit Information</h3>
+    <hr/>
+    <EditForm method="post" FormName="SearchCreditbyId" OnValidSubmit="SearchCreditbyId" Model="@credit">
+        <InputText class="form-control col3" @bind-Value="Credit.AgentNumber"></InputText>
+    </EditForm>
+</div>
+<div class="row justify-content-center">
+    <div class="col-10">
+        @if(foundcredits != null)
+        {
+            <div>
+
+            </div>
+        }
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-10">
+            @if(credits != null)
+            {
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    <table class="table table-bordered table-striped mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>AgentNumber</th>
+                                <th>Transaction Reference</th>
+                                <th>Transaction Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Vc</th>
+                                <th>Audit Date</th>
+                                <th>Bank Name</th>
+                                <th>Bank Branch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var credit in credits)
+                            {
+                                <tr>
+                                    <td>@credit.AgentNumber</td>
+                                    <td>@credit.transaction_reference</td>
+                                    <td>@credit.TransactionDate</td>
+                                    <td>@credit.Amount</td>
+                                    <td>@credit.Status</td>
+                                    <td>@credit.Vc</td>
+                                    <td>@credit.AuditDate</td>
+                                    <td>@credit.BankName</td>
+                                    <td>@credit.BankBranch</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+            }
+            else if (credits is null)
+            {}
+        </div>    
+</div>
+
+
+            @code {
+                public Credit credit { get; set; } = new();
+            private List<Credit>? credits;
+            private List<Credit>? foundcredits;
+            protected override async Task OnInitializedAsync()
+    {
+        credit = new Credit();
+        credits = await Repository.GetAllCredits();
+    }
+    private async Task SearchCreditbyId()
+    {
+        foundcredits = await Repository.GetCreditById(credit)
+    }
+}
